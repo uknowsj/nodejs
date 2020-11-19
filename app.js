@@ -11,16 +11,20 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 //app.use(express.json());
 
+import dotenv from "dotenv"
+dotenv.config() //env파일 안에 있는 정보 로드
+
+
 const mongoose = require('mongoose') 
 
 const { User } = require('./models/User');
 const { Target } = require('./models/Target');
 
 /*-- mongoDB 연결 --*/
-const config = require('./config/key');
+//const config = require('./config/key');
 
 //외부 DB 접속
-mongoose.connect(config.mongoURI,{
+mongoose.connect(process.env.mongoURI,{
     useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(()=>console.log("mongoDB connected.."))
 .catch(err=>console.log(err))
