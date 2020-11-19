@@ -1,0 +1,16 @@
+<h2>ffff</h2>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="../src/js/jquery.ajax-cross-origin.min.js"></script>
+<script>
+        $(function(){
+        $.ajax({
+            crossOrigin : true,
+            url:'/test',
+            dataType:'json',
+            success:function(ret){
+                alert('전달완료');
+                console.log(ret);
+            },error:function(err){console.log("에러발생s",err)}
+        });
+    });
+</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("./common/header") %>
+
+    <link href="../src/css/style.css" rel="stylesheet">
+    <link href="../src/css/mypage.css" rel="stylesheet">
+    <link href="../src/css/result.css" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- load targetInfo data -->
+    <script src="../src/js/getTargetInfo.js"></script> 
+    <script src="../src/js/index.js"></script>
+    
+    <script>
+
+        $(function(){
+            $.ajax({
+      url:'/any',
+      method:'get',
+      data:{info:"hello"},
+      success:function(res){
+        alert('성공');
+      },
+      error:function(err){
+        console.log("/getTestInfo ajax Error",err)
+      }
+    });
+
+
+
+
+
+
+        });
+
+
+
+    </script>
+
+
+</head>
+<body>
+    <div class="content-header">
+        <p>Test page</p>
+    </div>
+    <div id="card">
+        <div class="row">
+            <div class="media-list">
+
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

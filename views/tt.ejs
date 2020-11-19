@@ -1,0 +1,25 @@
+<script>
+var _url = '/testApi';
+var _jsonData = {
+  name: 'webisfree',
+  url: 'webisfree.com'
+};
+
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var _data = this.response;
+    var _blob = new Blob([_data], {type : 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+
+    var link = document.createElement('a');
+    link.href = window.URL.createObjectURL(_blob);
+    link.download = 'text.xlsx';
+    link.click();
+  };
+};
+
+xhr.open('POST', _url);
+xhr.responseType = 'blob';
+xhr.setRequestHeader('Content-type', 'application/json');
+xhr.send(_jsonData);
+</script>
