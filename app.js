@@ -45,8 +45,8 @@ mongoose.connect(process.env.mongoURI,{
 /*-- ejs 설정 --*/
 app.set("view engine","ejs"); //app에 view engine을 설치. ejs를 템플릿으로
 // app.set('views',(path.join(__dirname,'views'))); //view 폴더 경로는 프로젝트 폴더.(__dirname이 폴더위치)
-app.use(express.static(__dirname+'/')); //view 폴더 경로는 프로젝트 폴더.(__dirname이 폴더위치)
-
+// app.use(express.static(__dirname+'/')); //view 폴더 경로는 프로젝트 폴더.(__dirname이 폴더위치)
+app.use(express.static(__dirname+'/public')); //view 폴더 경로는 프로젝트 폴더.(__dirname이 폴더위치)
 
 /*-- main page --*/
 app.get('/contact',function(req,res){
