@@ -11,8 +11,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 //app.use(express.json());
 
-import dotenv from "dotenv"
-dotenv.config() //env파일 안에 있는 정보 로드
+// const dotent = require("dotenv");
+// import dotenv from "dotenv"
+// dotenv.config() //env파일 안에 있는 정보 로드
 
 
 const mongoose = require('mongoose') 

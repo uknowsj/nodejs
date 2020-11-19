@@ -1,0 +1,106 @@
+.h5{
+    font-weight: 800;
+    font-size: 1.3em;
+    font-family: NEXON Lv1 Gothic OTF,sans-serif;
+}
+
+.rectangle {
+    width: 100%;
+    height: 160px;
+    background: rgb(226, 224, 251);
+    /* border:1px solid blue; */
+
+  }
+#wrap{
+    position: relative;
+}
+#profile{
+    position: absolute;
+    height:120px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto 0;
+    /* border:1px solid red; */
+}
+/* 프로필 이미지 */
+#figure {
+    width: 120px;
+    height: 120px; 
+    border-radius: 70%;
+    overflow: hidden;
+    vertical-align:middle;
+    display: inline-block;
+}
+#text{
+    display: inline-block;
+    height: 120px;
+    /* border:1px solid green; */
+    vertical-align: middle;
+    padding : 1.2% 0;
+}
+
+.profile-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#twitter-button{
+    display: inline-block;
+    position: absolute;
+    right:10px;
+    bottom:10px;
+}
+
+.btn3 button{
+    width: 150px;
+    height: 30px;
+    background-color:  rgb(138, 133, 241);
+    color: #ffffff;
+    border:none;
+  }
+  .btn3 button:hover,
+  .btn3 button:focus,
+  .btn3 button:focus {
+    border:none;
+    outline: 0;
+    text-decoration: none;
+    background-color: rgb(123, 118, 233);
+  } 
+  
+  /* 글씨체 */
+  .Large-header{
+    font-size: 2.4em;
+    font-family: S-CoreDream-5Medium,sans-serif;
+    color: rgb(138, 133, 241);
+  }
+  .small-header{
+    font-size: 1.8em;
+    font-family: S-CoreDream-5Medium,sans-serif;
+  }
+  .content-header{
+    margin:20px auto;
+    padding-bottom: 10px;
+    font-size: 1.5em;
+  }
+  .content-small-header{
+    padding-bottom: 10px;
+    font-size: 1.2em;
+  }
+  #chart {
+    width: 100%;
+    margin: 0px -1.5%;
+  }
+  
+  /* a 링크 */
+  a {
+    color: rgb(138, 133, 241);
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: none;
+    color: rgb(112, 106, 228);
+
+  }

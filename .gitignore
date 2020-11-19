@@ -1,6 +1,7 @@
 node_modules
 nosql.txt
 bootstrap-3.3.2-dist
-src
 dev.js
 config.py
+.env
+config
