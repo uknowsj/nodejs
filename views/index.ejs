@@ -5,9 +5,9 @@
     
     <!-- basic css -->
     <link href="../src/css/style.css" rel="stylesheet">
-    <link href="../src/css/mypage.css" rel="stylesheet">
+    <link href="../src/css/common.css" rel="stylesheet">
     <link href="../src/css/index.css" rel="stylesheet">
-    <link href="../src/css/scroll-style.css" rel="stylesheet">
+
     <link href="../src/css/demo.css" rel="stylesheet">
 
     
@@ -19,7 +19,17 @@
     <script src="../src/js/getTargetInfo.js"></script> 
     <script src="../src/js/index.js"></script>
     
-
+    <style>
+        #card{
+            width: 900px;
+        }
+        .sub{
+            font-size:2.6em;
+        }
+        #contact{
+            overflow: hidden;
+        }
+    </style>
     <script>
 
         $(function(done){
@@ -46,66 +56,74 @@
             <%- include ("./common/navbar") %>
         </header>
         <div>
-            <div class="content-header"><a href="/"><h2>CTA(Celeb's Tweet Analysis)</h2></a></div>
-            
-            <p>Please write a description here</br>
-                Check out the results of people you are interesed in</p>
+            <div class="Large-header">
+                <a href="/">
+                    <p>CTA <smaller>Celeb's Tweet Analysis</smaller></p>
+                </a>
+            </div>
+            <div class="content-body">
+                <p>평소 관심 있는 셀럽이 있으신가요?</br>
+                    CTA는 트윗 내용 분석을 통해 셀럽의 트윗 내용을 <color2>긍정/중립/부정</color2> 3가지 감성으로 나누어 보여줍니다.</br>
+                    지금 바로 트윗 감성 분석을 진행해 보세요!</p>
+            </div>
         </div>
     </div>
 
     <!------------------- 본문 ------------------->
-    <div id="wrap">
-        <div id="content-right" style="margin-top:-20px">
-                <p class="text-center h5">SAMPLE RESULT SCREEN</p>
-                <img src="../src/img/res.JPG"  width="390px"/>
-        </div>
-    </div>
+
 
     <div class="rectangle">
-        <div id="wrap" style="margin-top:80px">
-            <div id="snb">
-                <!-- <div class="content-header text-center">
-                    <h3>회원정보변경</h3>
-                </div> -->
-                    <div class="dl">
-                        <h5 class="h5">Enter the name of people you're interested in</h5>
-                    </div>
-                    <!------------------- 서치폼 ------------------->
-                    <!-- style="border:1px solid aqua" -->
-                    <div class="dl floating">
-                        <!-- action="result" ->ajax로 -->
-                        <form id="searchForm" class="join-input" method="get" action="result">
-                            <div class="searchForm2">
-                                <input id="completeBar" type="text" class="search" name="searchKey" placeholder="Enter the name">
-                                <button id="submitBtn1" class="btn">
-                                    <img src="./src/img/search_index.svg"/>
-                                </button>
-                            </div>
-                            <button id="submitBtn2" class="btn btn2" style="background: rgb(138, 133, 241);">SUBMIT</button>
-                        </form>
-                        <div >
-
+        <div class="inside-wrap">
+            <!-- 왼쪽 콘텐츠 -->
+            <div id="snb"> 
+                <div class="top-content">
+                    <h5 class="content-body">셀럽의 이름을 검색해 보세요</h5>
+                </div>
+                <!------------------- 서치폼 ------------------->
+                <!-- style="border:1px solid aqua" -->
+                <div class="mid-content floating">
+                    <!-- action="result" ->ajax로 -->
+                    <form id="searchForm" class="join-input" method="get" action="result">
+                        <div class="searchForm2">
+                            <input id="completeBar" type="text" class="search" name="searchKey" placeholder="Enter the name">
+                            <button id="submitBtn1" class="btn">
+                                <img src="./src/img/search_index.svg"/>
+                            </button>
                         </div>
-                     </div>
-                     <div>
+                        <button id="submitBtn2" class="btn btn2" style="background: rgb(138, 133, 241);">SUBMIT</button>
+                    </form>
                     </div>
-                    <div class="dl" style="margin-top:130px">
-                        <h5 class="h5">* the person you were looking for isn't here?</br>
-                            then you can choose person from below! </h5>
+
+                <div class="bottom-content">
+                    <svg class="middle-position"   width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path style="fill:rgb(138, 133, 241); fill-rule:evenodd;" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                        </svg>
+                    <div class="content-body middle-position"> &nbsp; 찾고 있는 셀럽이 보이지 않나요?</br></div>
+                    <div>
+                        <small-info>CTA는 현재 베타버전으로 일부 기능 제한이 있습니다.</br>
+                            아래 리스트에서 분석대상을 선택해 주세요. </small-info>
                     </div>
+                </div>
             </div>
-        </div>
+            <!-- 오른쪽 콘텐츠 -->
+            <div id="right-content">
+                <div class="right-wrap">
+                    <p class="text-center" style="color:rgb(69, 69, 80)"><strong>SAMPLE RESULT SCREEN</strong></p>
+                    <img src="../src/img/res.JPG"  width="390px"/>
+                </div>
+            </div>
+        </div> <!-- inside wrap 끝-->
     </div> <!-- rectangle 끝-->
 
 
     <!------------------- 프로필 ------------------->
     <div id="wrap">
         <div id="profile">
-            <div class = "padding-top padding-bottom">
-                <h3>PEOPLE</h3>
-                <h5 class="h5"> who you can analyze NOW</h5>
+            <div class = "top-content">
+                <p class="small-header">현재 분석 가능한 인물</p>
+                <p class="basic-font bottom-content">클릭하여 분석을 시작해 보세요!</p>
             </div>
-            <div id="card" style="width: 900px">
+            <div id="card" class="top-content">
                 <div class="row">
                     <div class="media-list">
 
@@ -120,38 +138,41 @@
     <!------------------- ABOUT ------------------->
     <div id="wrap">
     <!-- 헤더 -->
-        <div></br></br></br></br></br></br></br></div>
-        <div id="about" class="content-header block">
-            <h2 data-scroll="toggle(.fromTopIn, .fromTopOut)">ABOUT</h2>
+        <div></br></br></br></div>
+        <div id="about" class="Large-header sub">
+            <p data-scroll="toggle(.fromTopIn, .fromTopOut)">ABOUT</p>
         </div>
         
         
-        <div id="content block" data-scroll="toggle(.fromBottomIn, .fromBottomOut)">
+        <div id="content" data-scroll="toggle(.fromBottomIn, .fromBottomOut)">
             <h3>프로그램 소개</h3>
             <ul>
                 <li>프로그램 개요</li>
-                <p>- 사용자의 트윗의 문장을 3가지 감성으로 분석해주며,
+                <p>사용자의 트윗의 문장을 3가지 감성으로 분석해주며,
                     트윗에서 자주 사용하는 단어를 최대 5개 제공</p>
                 <li>희소행렬 내용??</li>
-                <p>- 기존의 딥러닝 모델에 pruning을 통해 정확도를 높인 후,
+                <p>기존의 딥러닝 모델에 pruning을 통해 정확도를 높인 후,
                     model convolution 연산에 NZB Indexing을 통해 성능을 높인 프로그램</p>
+                <p>※트위터 무료 API 한계로 데이터를 직접 수집해야해 인원을 특정지었습니다</p>
             </ul>
             <h3>분석 진행과정</h3>
             <ul>
                 <li>분석 데이터</li>
-                <p>- 트위터 API 문제로 특정 인물 50명의 영어 트윗을 직접 수집한 데이터 사용. (09/22 - </p>
+                <p> 특정 인물 50명의 영어 트윗을 직접 수집한 데이터 사용. (09/22 - </p>
                 <li>분석 과정</li>
-                <p>- 배포한 모델을 통해 문장을 0-1 사이의 수치로 예측을 통해 3가지 감성으로 분류</p>
-                <li>정확도??</li>
-                <p>- 저희 모델의 정확도는 % 입니다.</p>
+                <p>배포한 모델을 통해 문장을 0-1 사이의 수치로 예측을 통해 3가지 감성으로 분류</p>
+                <p>전체 트윗에서 자주 사용하는 단어 5개 제공</p>
+                <p>※ 자주 사용하는 단어는 어간 추출로 인해 잘린 단어가 제공될 수 있습니다.</p>
+                <li>정확도</li>
+                <p>저희 모델의 정확도는 78.89% 입니다.</p>
             </ul>
             <h3>분석 결과 안내</h3>
             <ul>
-                <li>그래프 비율 (긍정 / 중립 / 부정)</li>
-                <li>긍정 / 중립 / 부정 문장 예시 (정확도 높은 순으로 2문장 제시)</li>
+                <li>분석 인물의 프로필 및 트윗 바로가기</li>
+                <li>트윗 문장의 감성 비율 (긍정 / 부정 / 중립)</li>
+                <li>긍정 / 부정 / 중립 문장 예시 (분석 결과 정확도 높은 순으로 2문장 제시)</li>
                 <li>자주 쓰는 단어 최대 5개</li>
-                <p>※무료 API 한계로 인해 인원을 특정지었습니다.</p>
-                <p>※어간 추출로 인해 잘리는 단어가 있을 수 있습니다.</p>
+                <li>외부 사이트 공유 기능</li>
             </ul>
         </div>
     
@@ -159,27 +180,33 @@
 
 
     <!------------------- CONTACT ------------------->
-    <div></br></br></br></br></br></br></br></div>
+    <div></br></br></br></br></br></div>
     
     <div class="rectangle"> 
-        <div id="wrap">
+        <div class="inside-wrap">
         <!-- 헤더 -->
-            <div></br></br></br></div>
-            <div id="contact" class="content-header block">
-                <h2 data-scroll="toggle(.fromTopIn, .fromTopOut)">CONTACT</h2>
+        <div id="contact"> 
+            <div class="Large-header sub top-content">
+                <div data-scroll="toggle(.fromTopIn, .fromTopOut)">CONTACT</div>
             </div>
         
-            <div id="content block" data-scroll="toggle(.fromBottomIn, .fromBottomOut)">
-                <h3>개발자 안내</h3>
-                <p>세종대 캡스톤 팀 프로젝트</p>
-                <h3>CONTACT US</h3>
-                <p>contact@?.me</p>
-                <p>
-                    프로모션 및 파트너쉽과 관련한 문의사항을 보내주세요.
-                    아래 연락처로 연락주시면 확인 후 빠르게 연락 드리겠습니다
-                </p>                
+            <div  data-scroll="toggle(.fromBottomIn, .fromBottomOut)">
+                <div class="content-body">
+                    <h3>개발자 안내</h3>
+                    <p>세종대 캡스톤 프로젝트 2팀</p>
+                </div>
+                <div class="content-body bottom-content">
+                    <h3>문의사항</h3>
+                    <p>
+                        프로그램 관련 제안 및 문의사항을 보내주세요.</br>
+                        아래 연락처로 연락주시면 확인 후 빠르게 연락 드리겠습니다.</br>
+                        E-mail | uknowsj@gmail.com
+                    </p>                
+                </div>
             </div>
+            
         </div>
+        </div><!-- wrap 끝 -->
     </div>
     <div></br></br></br></br></br></br></br></div>
     
