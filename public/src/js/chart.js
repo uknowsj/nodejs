@@ -1,5 +1,6 @@
 var options = {
     series: [{
+      x: "2018-09-10",
     name: 'POSITIVE',
     data: [59.76]
   }, {
@@ -43,11 +44,15 @@ var options = {
         }
   },
   tooltip: {
+    x: {
+      show: false,
+  },
     y: {
       formatter: function (val) {
-        return val + "K"
+        return val + "%"
       }
     }
+
   },
   fill: {
     opacity: 1

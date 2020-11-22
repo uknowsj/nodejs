@@ -17,8 +17,9 @@
 
 .content-small-header{
     font-size: 1.3em;
-    font-family: S-CoreDream-5Medium,sans-serif;
+    font-family: S-CoreDream-6Bold,sans-serif;
     color: rgb(69, 69, 80);
+    display: inline-block;
 }
 .content-body{
     margin-top:2%;

@@ -20,7 +20,7 @@ mongoose.connect(process.env.mongoURI,{
 .catch(err=>console.log(err))
 
 
-// /*-- mongoDB 연결 --*/
+/*-- mongoDB 연결 --*/
 // const config = require('./config/key');
 // mongoose.connect(config.mongoURI,{
 //     useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false

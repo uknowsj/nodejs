@@ -86,3 +86,40 @@
     margin: 0px -1.5%;
   }
   
+
+  .result-wrap{
+    width:1400px;
+    margin:0 auto;
+    min-height: 400px;
+  }
+  .list-content{
+    line-height:2.5; 
+    color:rgb(69, 69, 80); 
+    list-style: none; 
+    padding-left:0px;
+    font-size:1.1em
+  }
+  
+  .box{
+    display: inline-block;
+    background-color: red;
+    width: 16px;
+    height: 16px;
+  }
+  .box.red{
+    background-color: red;
+  }
+  .box.green{
+    background-color: green;
+  }
+  .box.blue{
+    background-color: blue;
+  }
+
+  .right-wrap{
+    border : 1px solid red;
+    min-width: 400px; 
+    height:auto; 
+    /* float을 right로 줌으로써 부모 right-content 의 오른쪽에 위치시키고 width도 부모 width->img width로 */
+    display: table-cell;
+}
