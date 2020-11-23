@@ -30,7 +30,7 @@ mongoose.connect(process.env.mongoURI,{
 
 /*-- ejs 설정 --*/
 app.set("view engine","ejs"); //app에 view engine을 설치. ejs를 템플릿으로
-app.use(express.static(__dirname+'/public')); //view 폴더 경로는 프로젝트 폴더.(__dirname이 폴더위치)
+app.use(express.static(__dirname+'/public')); //view 폴더 경로는 프로젝트 폴더.(__dirname이 폴더위치) =>public folder로 마운트
 
 var mainRouter = require('./routes/main');
 app.use('/',mainRouter);
@@ -48,5 +48,12 @@ app.get('/result',(req,res)=>{
     res.locals.key = req.query.searchKey;
 });
 
+
+app.get('/c',(req,res)=>{
+    res.render('cloud');
+})
+app.get('/c2',(req,res)=>{
+    res.render('cloud2');
+})
 app.listen(port,()=>console.log(`Example app listening on port ${port}`));
 

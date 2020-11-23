@@ -52,9 +52,9 @@
                         <img class="profile-image" src="<%- targetInfo.image -%>">
                     </div>
                     <div id="text" class="content-body">
-                        <p class="bold">Analysis Target : <%- targetInfo.name -%></p>
-                        <p><strong>Job</strong> <%- targetInfo.job -%></p>
-                        <p style="margin:0"></strong>Twitter Account</strong> : <%- targetInfo.account -%></p>
+                        <p class="bold">Analysis Target | <%- targetInfo.name -%></p>
+                        <p><strong>Job</strong> | <%- targetInfo.job -%></p>
+                        <p style="margin:0"><strong>Twitter Account</strong> | <%- targetInfo.account -%></p>
                     </div>
                     <div id="twitter-button" class="btn3">
                             <button onClick="location.href='https://twitter.com/<%- targetInfo.account -%>'">Go Twitter Now</button>
@@ -93,28 +93,34 @@
             </div>
         </div>
     <div class="result-wrap">
-        <div style="border: 1px solid black"></div>
-        <div class="content-header" style="border : 1px solid blue; display:table-cell">
+        <div style="border-top: 1px solid rgb(180, 180, 187)"></div>
+        <div class="content-header2">
             <p>Used Words in Twits</p>
         </div>
-        <div>
+
+        <!-- Used Words -->
+        <div style="display:inline-flex">
             <!-- word cloud -->
-            <div style="background-color: yellow;width: 100%; height: 300px;display: table-cell;">
-                <div id="graph"> ..</div>
-            
+            <div style="width: 100%; height: 500px;display: table-cell;">
+                <div id="graph" style="display:inline-block"></div>
+
             </div>
             <!-- TOP 5 words -->
             <div class="right-wrap"> 
-                <div class="content-small-header">TOP 5 WORDS</div>
-                <div id="wordsTop" class="content"></div>
-
-
+                <div>
+                    <div class="content-small-header">TOP 5 WORDS</div>
+                    <div id="word-list">
+                        <div id="wordsTop" class="content top-content"></div>
+                        
+                    </div>
+                </div>
             </div>
-
         </div>
-
-        
     </div><!-- word result wrap 끝 -->
+    <div class="result-wrap" style="min-height: 200px;">
+        <button id="shareBtn" class="btn btn2" style="background: rgb(138, 133, 241);">SHARE RESULT</button>
+    </div>
+
 </div>
 
     <!-- 공유하기 자리 -->
@@ -206,13 +212,18 @@ function shareAct(a){
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="../src/js/chart.js"></script>
 
+    <!-- word cloud -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"></script>
+    <script src="../src/js/wordcloud.js"></script>
+
     <script>
         $(function () {
             key = $("#key").text();
             console.log(key);
             $.ajax({
-                url: 'http://localhost:5000/result',
-                // url: 'http://54.180.98.170:5000/result',
+                // url: 'http://localhost:5000/result',
+                url: 'http://54.180.98.170:5000/result',
                 data: {
                     account: key
                 },
@@ -224,8 +235,7 @@ function shareAct(a){
                     counts = res.countWords.counts //자주 쓰는 단어별 빈도수 
                     ratio = res.sentiment.ratio //label 별 비율
                     sentences = res.sentiment.sentence
-                    
-                    console.log("비율 : ", res.sentiment.ratio);
+     
                     chart.updateOptions({
                         series: [{
                             name: 'POSITIVE',
@@ -255,11 +265,24 @@ function shareAct(a){
 
                     var wordMsg = '';
                     for (var i in words) {
-                        wordMsg += '<li>' + words[i] + '</li>';
+                    
+                        wordMsg += '<div><div class="box black"></div>'+'<li style="display:inline-block;vertical-align: center;">' + words[i] + '</li></div>';
                     }
+
                     $('#wordsTop').html('<ul>' + wordMsg + '</ul>'); //마우스 hover 시 개수 나타내야함
-             
-                    $('.loader').hide(300);//로딩이미지 hide
+
+
+                    // 워드클라우드 데이터
+                    wordsdata = res.countWords.all_worlds; //사용된 단어중 100개
+                    var wordList=[];
+                    for(i in wordsdata){
+                        var ob = {text:wordsdata[i][0],frequency:wordsdata[i][1]};
+                        wordList.push(ob);
+                    }
+                    wordCloud(wordList);
+                    
+                    //로딩이미지 hide
+                    $('.loader').hide(300);
                 },
                 error: function (err) {
                     console.log("에러", err);

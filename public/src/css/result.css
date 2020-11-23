@@ -7,7 +7,7 @@
 }
 .bold{
     font-family:S-CoreDream-6Bold,sans-serif;
-    font-size:1.4em;
+    font-size:1.2em;
 }
 .rectangle {
     width: 100%;
@@ -75,11 +75,18 @@
     background-color: rgb(123, 118, 233);
   } 
   .content-header{
-    font-family:S-CoreDream-5Medium,sans-serif;
+    font-family:S-CoreDream-6Bold,sans-serif;
     color:rgb(69, 69, 80);
     margin-top: 30px;
     margin-bottom: -40px;
-    font-size: 1.6em;
+    font-size: 1.5em;
+  }
+  .content-header2{
+    font-family:S-CoreDream-6Bold,sans-serif;
+    color:rgb(69, 69, 80);
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+    font-size: 1.5em;
   }
   #chart {
     width: 100%;
@@ -97,7 +104,6 @@
     color:rgb(69, 69, 80); 
     list-style: none; 
     padding-left:0px;
-    font-size:1.1em
   }
   
   .box{
@@ -115,11 +121,30 @@
   .box.blue{
     background-color: blue;
   }
+  .box.black{
+    width: 6px;
+    background-color: rgb(69, 69, 80);
+    margin-right: 15px;
+    vertical-align: center;
+  }
 
   .right-wrap{
-    border : 1px solid red;
-    min-width: 400px; 
+    /* border : 1px solid red; */
+    min-width: 600px; 
     height:auto; 
     /* float을 right로 줌으로써 부모 right-content 의 오른쪽에 위치시키고 width도 부모 width->img width로 */
     display: table-cell;
+    padding-left: 5em;
+}
+#wordsTop > ul{
+  font-size: 1.2em;
+  line-height: 2.2;
+  font-family: S-CoreDream-5Medium,sans-serif;
+  list-style: none; 
+  padding-left: 0;
+}
+.btn2{
+  display: block;
+  margin:5% auto;
+  width: 15%;
 }
