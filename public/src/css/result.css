@@ -116,10 +116,10 @@
     background-color:rgb(167, 194, 234);
     
   }
-  .box.neg{
+  .box.neu{
     background-color: rgb(224, 224, 224);
   }
-  .box.neu{
+  .box.neg{
     background-color: rgb(234, 181, 167);
   }
   .box.black{
