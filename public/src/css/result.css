@@ -112,14 +112,15 @@
     width: 16px;
     height: 16px;
   }
-  .box.red{
-    background-color: red;
+  .box.pos{
+    background-color:rgb(167, 194, 234);
+    
   }
-  .box.green{
-    background-color: green;
+  .box.neg{
+    background-color: rgb(224, 224, 224);
   }
-  .box.blue{
-    background-color: blue;
+  .box.neu{
+    background-color: rgb(234, 181, 167);
   }
   .box.black{
     width: 6px;
@@ -145,6 +146,13 @@
 }
 .btn2{
   display: block;
-  margin:5% auto;
+  margin:5% auto 2%;
   width: 15%;
 }
+
+a,a:hover {
+  color:rgb(69, 69, 80);
+  text-decoration: none;
+  }
+
+  

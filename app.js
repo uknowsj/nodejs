@@ -49,11 +49,5 @@ app.get('/result',(req,res)=>{
 });
 
 
-app.get('/c',(req,res)=>{
-    res.render('cloud');
-})
-app.get('/c2',(req,res)=>{
-    res.render('cloud2');
-})
 app.listen(port,()=>console.log(`Example app listening on port ${port}`));
 

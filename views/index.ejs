@@ -29,6 +29,15 @@
         #contact{
             overflow: hidden;
         }
+        ul,li{
+            padding-left:0px;
+            line-height: 2em;
+            list-style: none;
+        }
+        ul > .content-small-header{
+            font-family:S-CoreDream-5Medium,sans-serif;
+        }
+
     </style>
     <script>
 
@@ -147,26 +156,20 @@
         <div id="content" data-scroll="toggle(.fromBottomIn, .fromBottomOut)">
             <h3>프로그램 소개</h3>
             <ul>
-                <li>프로그램 개요</li>
-                <p>사용자의 트윗의 문장을 3가지 감성으로 분석해주며,
-                    트윗에서 자주 사용하는 단어를 최대 5개 제공</p>
-                <li>희소행렬 내용??</li>
-                <p>기존의 딥러닝 모델에 pruning을 통해 정확도를 높인 후,
-                    model convolution 연산에 NZB Indexing을 통해 성능을 높인 프로그램</p>
-                <p>※트위터 무료 API 한계로 데이터를 직접 수집해야해 인원을 특정지었습니다</p>
+                <p class="background">CTA(Celeb's Tweet Analysis)는 사용자의 트윗의 문장을 <color2>긍정/중립/부정</color2>3가지의 감성으로 분석해주며, 트윗에서 자주 사용하는 <color2>단어 5개</color2>를 제공합니다.</br>
+                    기존의 딥러닝 모델에 pruning을 통해 정확도를 높인 후, model의 convolution 연산에 <color2>NZB Indexing</color2>을 통해 분석 속도를 높였습니다.</p>
             </ul>
-            <h3>분석 진행과정</h3>
-            <ul>
-                <li>분석 데이터</li>
-                <p> 특정 인물 50명의 영어 트윗을 직접 수집한 데이터 사용. (09/22 - </p>
-                <li>분석 과정</li>
-                <p>배포한 모델을 통해 문장을 0-1 사이의 수치로 예측을 통해 3가지 감성으로 분류</p>
-                <p>전체 트윗에서 자주 사용하는 단어 5개 제공</p>
-                <p>※ 자주 사용하는 단어는 어간 추출로 인해 잘린 단어가 제공될 수 있습니다.</p>
-                <li>정확도</li>
-                <p>저희 모델의 정확도는 78.89% 입니다.</p>
-            </ul>
-            <h3>분석 결과 안내</h3>
+            <h3 class="top-content">분석 진행과정</h3>
+                <ul>
+                    <li class="content-small-header">분석 데이터</li>
+                    <p> 특정 인물 50명의 영어 트윗을 직접 수집한 데이터 사용. (09/22 - </p>
+                    <li class="content-small-header">분석 과정</li>
+                    <p>배포한 모델을 통해 문장을 0-1 사이의 수치로 예측을 통해 3가지 감성으로 분류</p>
+                    <p>전체 트윗에서 자주 사용하는 단어 5개 제공</br>※ 자주 사용하는 단어는 어간 추출로 인해 잘린 단어가 제공될 수 있습니다.</p>
+                    <li class="content-small-header">정확도</li>
+                    <p>저희 모델의 정확도는 78.89% 입니다.</p>
+                </ul>
+            <h3 class="top-content">분석 결과 안내</h3>
             <ul>
                 <li>분석 인물의 프로필 및 트윗 바로가기</li>
                 <li>트윗 문장의 감성 비율 (긍정 / 부정 / 중립)</li>
@@ -208,7 +211,6 @@
         </div>
         </div><!-- wrap 끝 -->
     </div>
-    <div></br></br></br></br></br></br></br></div>
     
 </body>
 
@@ -218,17 +220,18 @@
     <!-- scroll -->
     <script src="../src/js/ScrollTrigger.js"></script>
     <script>
-        window.counter = function() {
-            // this refers to the html element with the data-scroll-showCallback tag
-            var span = this.querySelector('span');
-            var current = parseInt(span.textContent);
+        // window.counter = function() {
+        //     // this refers to the html element with the data-scroll-showCallback tag
+        //     var span = this.querySelector('span');
+        //     var current = parseInt(span.textContent);
         
-            span.textContent = current + 1;
-        };
+        //     span.textContent = current + 1;
+        // };
         
         document.addEventListener('DOMContentLoaded', function(){
           var trigger = new ScrollTrigger({
-              addHeight: true
+              addHeight: true,
+              once: true
           });
         });
     </script>

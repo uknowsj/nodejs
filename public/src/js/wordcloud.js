@@ -11,6 +11,7 @@ var wordCloud = function(data){
     data_len = data.length;
     data_len *=0.8;
     
+    var _max = data[0].frequency;
     var max = data[4].frequency; //상위 5번쨰 단어 frequency
     var min = data[data_len].frequency; //하위 20번째
 
@@ -21,7 +22,7 @@ var wordCloud = function(data){
     .attr("id","wordcloud")
     
     
-    wordScale = d3.scale.linear().domain([0, 100]).range([0, 150]).clamp(true);
+    wordScale = d3.scale.linear().domain([0, _max]).range([0, 100]).clamp(true);
     var svg = d3.select("#wordcloud") //select는 안되고 selectAll은 된다=> 아펙스차트도 svg라 둘 중 어떤거 골라야할지 몰라 안나온듯 -> id 따로 추가
                 .append("g")
                 .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
@@ -40,14 +41,10 @@ var wordCloud = function(data){
             .rotate(function (d) {
             return d.text.length > 3 ? 0 : 90;
             })
+            .font('Impact')
             //스케일로 각 단어의 크기를 설정
             .fontSize(function (d) {
-                if(max>=5){
-                    return wordScale(d.frequency*5);
-                }
-                else{
-                    return wordScale(d.frequency*7);
-                }
+                    return wordScale(d.frequency);
             })
             //클라우드 레이아웃을 초기화 > end이벤트 발생 > 연결된 함수 작동  
             .on("end", draw)
@@ -58,16 +55,17 @@ var wordCloud = function(data){
             //Entering words
             cloud.enter()
                 .append("text")
-                .style("font-family", "NEXON Lv1 Gothic OTF")
+                .style("font-family", "Impact")
+                .style("line-height","2")
                 .style("fill", function (d) {
                     //default
-                    var color = "#b4b1fc"; 
+                    var color = "#cfcdf7"; 
                     //자주 쓰는단어 5개
                     if(d.frequency>=min){
-                        color = "#8a85f1";
+                        color = "#9a96f2";
                     }
                     if(d.frequency>=max){
-                        color = "#7b76e9";
+                        color = "#8c87ed";
                     }
                     return (color);
                 })

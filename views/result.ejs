@@ -5,10 +5,15 @@
     <%- include ("./common/header") %>
 
     <link href="../src/css/style.css" rel="stylesheet">
-    <!-- <link href="../src/css/mypage.css" rel="stylesheet"> -->
     <link href="../src/css/common.css" rel="stylesheet">
     <link href="../src/css/result.css" rel="stylesheet">
     <link href="../src/css/loading.css" rel="stylesheet">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@nytimes">
+    <meta name="twitter:creator" content="@SarahMaslinNir">
+    <meta name="twitter:title" content="Parade of Fans for Houston’s Funeral">
+    <meta name="twitter:description" content="NEWARK - The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here.">
+    <meta name="twitter:image" content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg">
 <style>
     #text{
         margin:0;
@@ -64,7 +69,7 @@
     </div><!-- 콘텐트 헤더 끝 -->
 
     <!-- 분석 결과 자리 -->
-    <div id="container">
+    <div id="content">
         <div class="result-wrap">
             <div>
                 <div class="content-header">
@@ -76,18 +81,18 @@
                 <!-- 문장 예시 자리 -->
                 <div>
                     <div class="content-small-header">POSITIVE</div>
-                    <div class="box red"></div>
+                    <div class="box pos"></div>
                     <div id="pos" style="padding:10px 0px 30px 0px; color:rgb(69, 69, 80);"></div>
 
                 </div>
                 <div>
                     <div class="content-small-header">NEGATIVE</div>
-                    <div class="box green"></div>
+                    <div class="box neg"></div>
                     <div id="neg" style="padding:10px 0px 30px 0px; color:rgb(69, 69, 80);"></div>
                 </div>
                 <div>
                     <div class="content-small-header">NEUTRAL</div>
-                    <div class="box blue"></div>
+                    <div class="box neu"></div>
                     <div id="neu" style="padding:10px 0px 30px 0px; color:rgb(69, 69, 80);"></div>
                 </div>
             </div>
@@ -117,27 +122,18 @@
             </div>
         </div>
     </div><!-- word result wrap 끝 -->
+    
+    <!-- share result button -->
     <div class="result-wrap" style="min-height: 200px;">
         <button id="shareBtn" class="btn btn2" style="background: rgb(138, 133, 241);">SHARE RESULT</button>
+        <p style="text-align: center; line-height: 2em;">프로그램 관련 제안 및 문의사항을 보내주세요.</br>
+            <a href="mailto:uknowsj@gmail.com"><strong>문의하기</strong></a>
+        </p>
     </div>
 
 </div>
 
-    <!-- 공유하기 자리 -->
-<!-- share result button -->
-<ul class="snsList">
-  
-    <li>SNS 공유하기</li>
-  
-    <li><a href="#" id="vIconTw" onclick="return false;">트위터 공유하기<i class="vIconTw"></i></a></li>
-  
-    <li><a href="#" id="vIconTg" onclick="return false;">d<i class="vIconTg"></i></a></li>
-  
-    <li><a href="#" id="vIconFb" onclick="return false;">d<i class="vIconFb"></i></a></li>
-  
-    <li><a href="#" id="vIconKs" onclick="return false;">d<i class="vIconKs"></i></a></li>
-  
-</ul>
+
 <script>
     $(window).ready(function(){ 
   
@@ -146,38 +142,27 @@
       shareAct(this);
 
   });
+  $("#shareBtn").click(function(){
+    alert("hello");
+      shareAct();
+
+  });
 
 });
 
-function shareAct(a){
+function shareAct(){
 
-  var snsCode = $(a).attr('id');
-    
-  var cUrl = "현재페이지 주소";
+//   var snsCode = $(a).attr('id');
+var text = `<h2>안녕하세요</h2>`
+  var cUrl = "http://54.180.98.170:8000/";
 
-  switch(snsCode){
-
-      case"vIconTw":
           //트위터
-          cUrl = 'https://twitter.com/intent/tweet?text=페이지제목:&url='+cUrl;
-      break;
+          cUrl = 'https://twitter.com/intent/tweet?text='+text+':&url='+cUrl;
 
-      case"vIconTg":
-          //텔레그램
-          cUrl = 'https://telegram.me/share/url?url='+cUrl;
-      break;
-            
-      case"vIconFb":
-          //페이스북
-          cUrl = 'http://www.facebook.com/sharer/sharer.php?u='+cUrl;
-      break;
 
-      case"vIconKs":
-          //카카오스토리
-          cUrl = 'https://story.kakao.com/share?url='+cUrl;
-      break;
 
-  }
+
+  
 
   window.open(cUrl,'','width=600,height=300,top=100,left=100,scrollbars=yes');
 

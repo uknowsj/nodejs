@@ -26,20 +26,6 @@ var showProfile = function(targetInfo){
 var autoKey = function(targetInfo){
     const names = targetInfo.map(i=>i.name);
     $("#completeBar").autocomplete({
-        // source : function(targetInfo,response){
-        //     response(
-        //         $.map(test,function(item){
-        //             console.log("heee")
-        //             console.log("item : ",item);
-        //             console.log("target : ",item+"cco");
-        //             return {  
-        //                 label : item+"label",
-        //                 value : item,
-        //                 test : item+"test"
-        //             }
-        //         })
-        //     );
-        // },
         source : names,
         select : function(event,ui){
             //console.log("dd",ui.item);
@@ -83,7 +69,6 @@ var isClick = function(data){
 
             $("#searchForm").submit();
         } else { //no 
-            alert("no");
             return false;
         }
     });
