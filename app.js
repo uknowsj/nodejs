@@ -2,7 +2,7 @@ const express = require('express'); //express 모듈요청
 const path = require('path');
 const app = express(); //app을 express 프레임워크로 킴
 const ejs = require("ejs"); //ejs 모듈 요청
-const port = 80;
+const port = 8000;
 const bodyParser = require('body-parser');
 
 //application/x-www-form-urlencoded를 분석해서 가져옴
