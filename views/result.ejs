@@ -213,7 +213,7 @@ var text = `<h2>안녕하세요</h2>`
                     account: key
                 },
                 method: 'get',
-                // dataType: 'json',
+                dataType: 'jsonp',
                 success: function (res) {
                     console.log(res)
                     words = res.countWords.words //자주 쓰는 단어
