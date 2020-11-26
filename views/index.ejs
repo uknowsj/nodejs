@@ -31,11 +31,14 @@
         }
         ul,li{
             padding-left:0px;
-            line-height: 2em;
+            line-height: 2.2em;
             list-style: none;
         }
         ul > .content-small-header{
             font-family:S-CoreDream-5Medium,sans-serif;
+        }
+        .top-content{
+            margin-top:40px;
         }
 
     </style>
@@ -156,18 +159,22 @@
         <div id="content" data-scroll="toggle(.fromBottomIn, .fromBottomOut)">
             <h3>프로그램 소개</h3>
             <ul>
-                <p class="background">CTA(Celeb's Tweet Analysis)는 사용자의 트윗의 문장을 <color2>긍정/중립/부정</color2>3가지의 감성으로 분석해주며, 트윗에서 자주 사용하는 <color2>단어 5개</color2>를 제공합니다.</br>
-                    기존의 딥러닝 모델에 pruning을 통해 정확도를 높인 후, model의 convolution 연산에 <color2>NZB Indexing</color2>을 통해 분석 속도를 높였습니다.</p>
+                <p class="background">CTA(Celeb's Tweet Analysis)는 사용자의 트윗의 문장을 <color2>긍정/부정/중립</color2>3가지의 감성으로 분석해주며, 트윗에서 자주 사용하는 <color2>단어 5개</color2>를 제공합니다.</br>
+                    기존의 딥러닝 모델에 pruning을 통해 정확도를 높인 후, model의 convolution 연산에 <color2>NZB Indexing</color2>을 적용하여 분석 속도를 높였습니다.</p>
             </ul>
             <h3 class="top-content">분석 진행과정</h3>
                 <ul>
                     <li class="content-small-header">분석 데이터</li>
-                    <p> 특정 인물 50명의 영어 트윗을 직접 수집한 데이터 사용. (09/22 - </p>
+                    <p>※ 트위터 무료 API 한계로 데이터를 직접 수집해야해 인원을 특정지었습니다. ※</p>
+                    <p> 특정 인물 50명의 영어 트윗을 데이터로 사용합니다. </p>
+                    <p>20년 09월 22일 이후의 트윗 데이터를 매주 화요일마다 직접 수집합니다.</p>
                     <li class="content-small-header">분석 과정</li>
-                    <p>배포한 모델을 통해 문장을 0-1 사이의 수치로 예측을 통해 3가지 감성으로 분류</p>
-                    <p>전체 트윗에서 자주 사용하는 단어 5개 제공</br>※ 자주 사용하는 단어는 어간 추출로 인해 잘린 단어가 제공될 수 있습니다.</p>
+                    <p>※ 분석은 최대 700문장이 가능하며, 분석 시간은 30초 이하 입니다. ※</p>
+                    <p>※ 자주 사용하는 단어는 어간 추출로 인해 잘린 단어가 제공될 수 있습니다. ※</p>
+                    <p>배포한 모델을 통해 각각의 문장을 0 - 1 사이의 수치로 예측을 통해 3가지 감성으로 분류합니다.</p>
+                    <p>전체 트윗에서 자주 사용하는 단어 5개 제공합니다.</p>
                     <li class="content-small-header">정확도</li>
-                    <p>저희 모델의 정확도는 78.89% 입니다.</p>
+                    <p>모델의 정확도는 78.89% 입니다.</p>
                 </ul>
             <h3 class="top-content">분석 결과 안내</h3>
             <ul>
@@ -175,7 +182,7 @@
                 <li>트윗 문장의 감성 비율 (긍정 / 부정 / 중립)</li>
                 <li>긍정 / 부정 / 중립 문장 예시 (분석 결과 정확도 높은 순으로 2문장 제시)</li>
                 <li>자주 쓰는 단어 최대 5개</li>
-                <li>외부 사이트 공유 기능</li>
+                <li>외부 사이트 공유 버튼</li>
             </ul>
         </div>
     
@@ -196,7 +203,7 @@
             <div  data-scroll="toggle(.fromBottomIn, .fromBottomOut)">
                 <div class="content-body">
                     <h3>개발자 안내</h3>
-                    <p>세종대 캡스톤 프로젝트 2팀</p>
+                    <p>세종대 캡스톤 디자인 "Team 16s" </p>
                 </div>
                 <div class="content-body bottom-content">
                     <h3>문의사항</h3>

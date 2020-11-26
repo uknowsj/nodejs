@@ -197,12 +197,14 @@ var text = `<h2>안녕하세요</h2>`
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"></script>
     <script src="../src/js/wordcloud.js"></script>
+    <script src="../src/js/jquery.ajax-cross-origin.min.js"></script>
 
     <script>
         $(function () {
             key = $("#key").text();
             console.log(key);
             $.ajax({
+                crossOrigin : true,
                 // url: 'http://localhost:5000/result',
                 url: 'http://54.180.98.170:5000/result',
                 data: {
