@@ -23,6 +23,10 @@
         margin-top: 0;
         margin-bottom: 0;
     }
+    smallheader{
+        font-size: 0.8em;
+        padding-left: 0.2em;
+    }
 
 </style>
 </head>
@@ -67,9 +71,8 @@
     <!-- 분석 결과 자리 -->
     <div id="content">
         <div class="result-wrap">
-            <div>
                 <div class="content-header">
-                    <p>트위터 문장 감성 비율</p>
+                    <p id="lines">트위터 문장 감성 비율</p>
                 </div>
                 <div id="chart">
                     <!-- 문장 비율 자리 -->
@@ -91,7 +94,6 @@
                     <div class="box neu"></div>
                     <div id="neu" style="padding:10px 0px 30px 0px; color:rgb(69, 69, 80);"></div>
                 </div>
-            </div>
         </div>
     <div class="result-wrap">
         <div style="border-top: 1px solid rgb(180, 180, 187)"></div>
@@ -204,7 +206,7 @@ var text = `<h2>안녕하세요</h2>`
             key = $("#key").text();
             console.log(key);
             $.ajax({
-                crossOrigin : true,
+                // crossOrigin : true,
                 // url: 'http://localhost:5000/result',
                 url: 'http://54.180.98.170:5000/result',
                 data: {
@@ -218,7 +220,8 @@ var text = `<h2>안녕하세요</h2>`
                     counts = res.countWords.counts //자주 쓰는 단어별 빈도수 
                     ratio = res.sentiment.ratio //label 별 비율
                     sentences = res.sentiment.sentence
-     
+                    lines = res.sentiment.lines
+
                     chart.updateOptions({
                         series: [{
                             name: 'POSITIVE',
@@ -231,6 +234,8 @@ var text = `<h2>안녕하세요</h2>`
                             data: [ratio[2]]
                         }]
                     });
+                     
+                    $('#lines').append(`<smallheader>(전체 문장 수 : `+lines+`)</smallheader>`);
 
                     var msg_pos = '';
                     var msg_neg = '';

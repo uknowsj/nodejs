@@ -145,10 +145,7 @@ a {
     height: auto;
     line-height: 2em;
   }
-  .background{
-    background-color:rgb(247, 245, 245);
-    display: inline-block;
-  }
+
 .btn2{
     margin:5% auto 2%;
 }
