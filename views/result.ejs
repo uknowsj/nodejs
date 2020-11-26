@@ -206,14 +206,14 @@ var text = `<h2>안녕하세요</h2>`
             key = $("#key").text();
             console.log(key);
             $.ajax({
-                crossDomain : true,
+                headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
                 // url: 'http://localhost:5000/result',
                 url: 'https://api.capstoneteam2.tk/result',
                 data: {
                     account: key
                 },
                 method: 'get',
-                dataType: 'jsonp',
+                dataType: 'json',
                 success: function (res) {
                     console.log(res)
                     words = res.countWords.words //자주 쓰는 단어
