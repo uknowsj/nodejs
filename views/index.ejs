@@ -53,7 +53,6 @@
             showProfile(data); 
             autoKey(data); //return했을 때 test값만 전달되고 변화된 값은 전달이 안됨.
             var selectedTarget;
-            console.log("Hello!!!");
             $("#completeBar").on("change",function(){
                 selectedTarget = $("#completeBar").val(); 
                 console.log("함수안: ",selectedTarget);
@@ -106,7 +105,8 @@
                                 <img src="./src/img/search_index.svg"/>
                             </button>
                         </div>
-                        <button id="submitBtn2" class="btn btn2" style="background: rgb(138, 133, 241);">SUBMIT</button>
+                        <input type="submit" value="SUBMIT" id="submitBtn2" class="btn btn2" style="background: rgb(138, 133, 241);outline: none;">
+                        <!-- <button id="submitBtn2" class="btn btn2" style="background: rgb(138, 133, 241);">SUBMIT</button> -->
                     </form>
                     </div>
 

@@ -27,6 +27,14 @@
         font-size: 0.8em;
         padding-left: 0.2em;
     }
+    a {
+color: rgb(138, 133, 241);
+text-decoration: none;
+}
+a:hover {
+text-decoration: none;
+color: rgb(138, 133, 241);
+}
 
 </style>
 </head>
@@ -123,7 +131,7 @@
     
     <!-- share result button -->
     <div class="result-wrap" style="min-height: 200px;">
-        <button id="shareBtn" class="btn btn2" style="background: rgb(138, 133, 241);">트위터 공유하기</button>
+        <button id="shareBtn" class="btn btn2" style="background: rgb(138, 133, 241);outline: none;">트위터 공유하기</button>
         <p style="text-align: center; line-height: 2em;">프로그램 관련 제안 및 문의사항을 보내주세요.</br>
             <a href="mailto:uknowsj@gmail.com"><strong>문의하기</strong></a>
         </p>
@@ -152,7 +160,7 @@ function shareAct(){
   var cUrl = "https://capstoneteam2.tk/";
 
           //트위터
-          cUrl = 'https://twitter.com/intent/tweet?text="":&url='+cUrl;
+          cUrl = 'https://twitter.com/intent/tweet?:&url='+cUrl;
 
 
 
