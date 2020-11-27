@@ -99,6 +99,8 @@ rectangle 엘리먼트에 종속하게 함
 .btn2:active {
   color: #fff;
   text-decoration: none;
+  border:0;
+  outline:0;
 }
 
 .padding-top{

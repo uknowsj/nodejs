@@ -148,6 +148,11 @@
   display: block;
   margin:5% auto 2%;
   width: 15%;
+  border:0;
+  outline:0;
+}
+.btn2:hover{
+  color:#ffffff;
 }
 
 a,a:hover {

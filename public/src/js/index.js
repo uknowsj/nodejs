@@ -1,6 +1,6 @@
 //show profile 
 var showProfile = function(targetInfo){
-    console.log(targetInfo);
+    // console.log(targetInfo);
         for(var i=0;i<targetInfo.length;i++){
                 $('.media-list').append(
                 `<div class="col-lg-4 col-md-4">
