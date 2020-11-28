@@ -3,7 +3,7 @@ var showProfile = function(targetInfo){
     // console.log(targetInfo);
         for(var i=0;i<targetInfo.length;i++){
                 $('.media-list').append(
-                `<div class="col-lg-4 col-md-4">
+                `<div class="col-lg-4 col-md-4" style="margin:5px 0">
                     <div class="media-left">
                         <a href="#" id="figure">
                         <img id="img" name="${targetInfo[i].name}" class="media-object profile-image" src="${targetInfo[i].image}" alt="personThumnail">
@@ -11,11 +11,13 @@ var showProfile = function(targetInfo){
                     </div>
                     <div class="media-body">
                         <div>
-                            <a href="#"><p class="body-top header-h3" id="name" name="${targetInfo[i].name}" >${targetInfo[i].name}</p>
+                            <a href="#" style="color:rgb(69, 69, 80)"><p class="body-top header-h3" id="name" name="${targetInfo[i].name}" >${targetInfo[i].name}</p>
                             </a>
                         </div>
-                        <p>${targetInfo[i].account}</p>
-                        <p>${targetInfo[i].job}</p>
+                        <div style="font-weight:600">
+                            <p>${targetInfo[i].account}</p>
+                            <p>${targetInfo[i].job}</p>
+                        </div>
                     </div>
                 </div>`
                 )
@@ -48,26 +50,46 @@ var autoKey = function(targetInfo){
         
 
 }
+
+
+var check = function(data,name){
+    //검색하려는 인물이 db에 있는지
+    for(i in data){
+        if(name==data[i].name){
+            return 1; //있으면 1
+        }
+    }
+    return 0; //없으면 0
+};
+
 //click event : 분석 여부 묻는 함수
 var isClick = function(data){
     $("#submitBtn1, #submitBtn2, #name, #img").on("click",function(e){
-        console.log("clicked! ",$(e.target));
         
         //if clicked name or img 
-        var clickedTarget = $(e.target).parent();
-        if(!clickedTarget.is('button')){ //버튼이 아니면
-            console.log($('#completeBar').val());
+        var clickedTarget = e.target.id;
+
+        if(!(clickedTarget=='submitBtn1'||clickedTarget=='submitBtn2')){ //버튼이 아니면
             var cardId = $(this).attr("name");
             $('#completeBar').val(cardId);
-            console.log($('#completeBar').val());
         }
-        
-        
+         
         var result = confirm('분석을 진행하시겠습니까?'); 
         if(result) { //yes 
-            //check in data
-
-            $("#searchForm").submit();
+            //검색 값없으면 거절
+            if($('#completeBar').val()==""){
+                alert("검색어를 입력해주세요.");
+                $('#completeBar').focus();
+                return false;
+            }
+            //데이터에 없어도 분석 불가
+            else if(!check(data, $('#completeBar').val())){
+                alert("분석할 수 없는 인물입니다.");
+                return false;
+            }
+            else{
+                $("#searchForm").submit();
+            }
         } else { //no 
             return false;
         }

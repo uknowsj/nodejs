@@ -7,7 +7,7 @@
     <link href="../src/css/style.css" rel="stylesheet">
     <link href="../src/css/common.css" rel="stylesheet">
     <link href="../src/css/index.css" rel="stylesheet">
-
+    <!--  scroll css -->
     <link href="../src/css/demo.css" rel="stylesheet">
 
     
@@ -40,29 +40,9 @@
         .top-content{
             margin-top:40px;
         }
-        li > a{
-            color: rgb(138, 133, 241);
-            text-decoration: none;
-        }
-
     </style>
-    <script>
-
-        $(function(done){
-            data = getTargetInfo.getData();
-            showProfile(data); 
-            autoKey(data); //return했을 때 test값만 전달되고 변화된 값은 전달이 안됨.
-            var selectedTarget;
-            $("#completeBar").on("change",function(){
-                selectedTarget = $("#completeBar").val(); 
-                console.log("함수안: ",selectedTarget);
-
-            });
-            isClick();
-
-        });
-    </script>
 </head>
+
 <body>
 
     <div id="wrap">
@@ -101,12 +81,12 @@
                     <form id="searchForm" class="join-input" method="get" action="result">
                         <div class="searchForm2">
                             <input id="completeBar" type="text" class="search" name="searchKey" placeholder="Enter the name">
-                            <button id="submitBtn1" class="btn">
-                                <img src="./src/img/search_index.svg"/>
+                            <button class="btn">
+                                <!-- button이 아닌 img id값으로 버튼 눌렀는지 확인함(isClick) -->
+                                <img id="submitBtn1" src="./src/img/search_index.svg"/> 
                             </button>
                         </div>
-                        <input type="submit" value="SUBMIT" id="submitBtn2" class="btn btn2" style="background: rgb(138, 133, 241);outline: none;">
-                        <!-- <button id="submitBtn2" class="btn btn2" style="background: rgb(138, 133, 241);">SUBMIT</button> -->
+                        <button id="submitBtn2" class="btn btn2" style="background: rgb(138, 133, 241);">SUBMIT</button>
                     </form>
                     </div>
 
@@ -186,7 +166,6 @@
                 <li>트윗 문장의 감성 비율 (긍정 / 부정 / 중립)</li>
                 <li>긍정 / 부정 / 중립 문장 예시 (분석 결과 정확도 높은 순으로 2문장 제시)</li>
                 <li>자주 쓰는 단어 최대 5개</li>
-                <li>외부 사이트 공유 버튼</li>
             </ul>
         </div>
     
@@ -225,25 +204,26 @@
     
 </body>
 
-
-
-
     <!-- scroll -->
     <script src="../src/js/ScrollTrigger.js"></script>
     <script>
-        // window.counter = function() {
-        //     // this refers to the html element with the data-scroll-showCallback tag
-        //     var span = this.querySelector('span');
-        //     var current = parseInt(span.textContent);
-        
-        //     span.textContent = current + 1;
-        // };
-        
         document.addEventListener('DOMContentLoaded', function(){
-          var trigger = new ScrollTrigger({
-              addHeight: true,
-              once: true
-          });
+            var trigger = new ScrollTrigger({
+                addHeight: true,
+                once: true,
+                yOffset:2760,
+            });
+        }); //스크롤. 나중에 scrollTriger.js 수정한 거 더 좋은 방법 찾아보기
+
+        $(function(done){
+            data = getTargetInfo.getData();
+            showProfile(data); 
+            autoKey(data); //return했을 때 test값만 전달되고 변화된 값은 전달이 안됨.
+            var selectedTarget;
+            $("#completeBar").on("change",function(){
+                selectedTarget = $("#completeBar").val(); 
+            });
+            isClick(data); //클릭했을 때 재확인 + 분석가능한 인물인지 + 프로필 클릭포함
         });
     </script>
 </html>

@@ -51,7 +51,13 @@
 			}(this);
 
 			this.top = function(_this){
+				
+				// console.log(_this.element.id);
+
 				return function(){
+					if(_this.element.id=='content'){
+						return _this.element.getBoundingClientRect().top-500;
+					} //이런식으로 쓰면 안될거 같은데..
 					return _this.element.getBoundingClientRect().top;
 				};
 			}(this);
@@ -76,7 +82,6 @@
 			this.yOffset = function(_this){
 				return function(goingUp){
 					var offset = yOffset;
-
 					// add the full height of the element to the top position, so the
 					// visibleClass is only added after the element is completely
 					// in the viewport

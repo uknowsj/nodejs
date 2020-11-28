@@ -155,9 +155,8 @@
   color:#ffffff;
 }
 
-a,a:hover {
-  color:rgb(69, 69, 80);
-  text-decoration: none;
+@media (max-width: 1016px) {
+  .rectangle{
+    width: 1400px;
   }
-
-  
+}

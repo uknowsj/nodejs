@@ -55,6 +55,8 @@ color2{
     color: rgb(138, 133, 241);
 }
 
+
+
   
 /* a 링크 */
 .Large-header a {
@@ -62,15 +64,25 @@ color2{
     text-decoration: none;
 }
 a {
-color: rgb(138, 133, 241);
-text-decoration: none;
+    color: rgb(138, 133, 241);
+    text-decoration: none;
 }
-a:hover {
+a:link,
+a:visited,
+a:hover,
+a:active {
 text-decoration: none;
 color: rgb(138, 133, 241);
 }
 
-
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:link,
+.navbar-default .navbar-nav > li > a:visited,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:active {
+    color: rgb(138, 133, 241);
+    font-family:S-CoreDream-6Bold;
+}
 
 /* POSITION */
 .middle-position{ 
