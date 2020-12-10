@@ -6,7 +6,7 @@ $(function () {
         //nodejs와 flask 서버 사이에서 데이터 주고받으려니 CORS 이슈가 생겼다. (로컬에선 괜찮았는데 호스팅하면서 도메인을 다르게 주어서)
         headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },  
         // url: 'https://api.capstoneteam2.tk/result',
-        url: 'https://api.capstoneteam2.co/result',
+        url: 'http://www.capstoneteam2.co:5000/result',
         data: {
             account: key
         },
